@@ -20,8 +20,9 @@ export class IncomeListComponent implements OnInit, OnDestroy{
     this.totalIncome = this.incomesrv.totalIncome;
     this.incomeList = this.incomesrv.incomes;
     this.incomesSub = this.incomesrv.incomesChanged.subscribe();
-    this.totalIncomeSub = this.incomesrv.totalIncomeChanged.subscribe();
-    console.log(this.totalIncome);
+    this.totalIncomeSub = this.incomesrv.totalIncomeChanged.subscribe((value) => {
+      this.totalIncome = +value;
+    });
   }
 
 
@@ -29,4 +30,5 @@ export class IncomeListComponent implements OnInit, OnDestroy{
     this.incomesSub.unsubscribe();
     this.totalIncomeSub.unsubscribe();
   }
+
 }
