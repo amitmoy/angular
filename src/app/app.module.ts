@@ -1,16 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-//Components
+// Components
 import { AppComponent } from './app.component';
-import {IncomeList} from './Components/IncomeList/income-list.component';
+import {IncomeListComponent} from './Components/IncomeList/income-list.component';
+import { IncomeInsertComponent } from './Components/IncomeInsert/income-insert.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
-    AppComponent, IncomeList
+    AppComponent, IncomeListComponent, IncomeInsertComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,16 +6,16 @@ import {Income} from './Types/Income';
   providedIn: 'root'
 })
 export class IncomeService{
-  totalIncome : number = 0;
-  incomes : Income[];
+  totalIncome = 0;
+  incomes: Income[] = [];
   incomesChanged = new Subject<Income[]>();
   totalIncomeChanged = new Subject<number>();
 
 
-  addIncome(income : Income){
+  addIncome(income: Income): void{
     this.incomes.push(income);
     this.incomesChanged.next(this.incomes);
-    this.totalIncome += +income.get_value();
+    this.totalIncome += +income.value;
     this.totalIncomeChanged.next(this.totalIncome);
     console.log(this.incomes);
   }
